@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your IP</title>
+</head>
+<body>
+<h1>Know Your IP</h1>
+<p>Your IP address is: <span id="ip"></span></p>
+<p> Country: <span id="country"></span></p>
+<p> City: <span id="city"></span></p>
+<p> Latitude: <span id="latitude"></span></p>
+<p> Longitude: <span id="longitude"></span></p>
+<p> Timezone: <span id="timezone"></span></p>
+<p> ISP: <span id="isp"></span></p>
+<p> Organization: <span id="org"></span></p>
+<p> ASN: <span id="asn"></span></p>
+<script>
+fetch('https://ipapi.co/json/')
+  .then(response => response.json())
+    .then(data => {
+        document.getElementById('ip').textContent = data.ip;
+        document.getElementById('country').textContent = data.country_name;
+        document.getElementById('city').textContent = data.city;
+        document.getElementById('latitude').textContent = data.latitude;
+        document.getElementById('longitude').textContent = data.longitude;
+        document.getElementById('timezone').textContent = data.timezone;
+        document.getElementById('isp').textContent = data.org;
+        document.getElementById('org').textContent = data.org;
+        document.getElementById('asn').textContent = data.asn;
+    })
+    .catch(error => console.error('Error fetching IP data:', error));
+</script>
+
+
+<h1>Legal Disclaimer</h1>
+
+<p>
+    This tool uses public APIs to retrieve your IP address and related network information.
+    No personal data is stored, logged, or shared by this website, and no cookies are used.
+    All information is displayed temporarily in your browser session for informational and educational purposes only.
+</p>
+
+<p>
+    The only third-party service involved in data retrieval is <strong>ipapi.co</strong>,
+    which processes the request in order to return your IP details.
+    This website does not control, sell, distribute, or retain any of your information.
+</p>
+
+<p>
+    <strong>Open Source Notice:</strong> This project is open source and may be reviewed for transparency whenever needed.
+    For additional questions, support, or business inquiries, please contact us below.
+</p>
+
+<button>
+    <a href="mailto:kvnorisk@gmail.com">Contact Us</a>
+</button>
+
+<p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">
+    © 2026 Know Your IP — Powered by ipapi.co
+</p>
+</body>
